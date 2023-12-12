@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+  <style>
+    /* Basic styling for the game */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    #game {
+      text-align: center;
+    }
+    #result {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 0 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="game">
+    <h2>Rock Paper Scissors</h2>
+    <p id="result">Choose an option:</p>
+    <button class="btn" id="rock">Rock</button>
+    <button class="btn" id="paper">Paper</button>
+    <button class="btn" id="scissors">Scissors</button>
+    <p id="score">Score: 0</p>
+  </div>
+
+  <script>
+    let userScore = 0;
+    let computerScore = 0;
+
+    // Function to generate computer's choice
+    function getComputerChoice() {
+      const choices = ['rock', 'paper', 'scissors'];
+      const randomIndex = Math.floor(Math.random() * 3);
+      return choices[randomIndex];
+    }
+
+    // Function to determine winner and update score
+    function determineWinner(userChoice, computerChoice) {
+      if (userChoice === computerChoice) {
+        return 'It\'s a tie!';
+      } else if (
+        (userChoice === 'rock' && computerChoice === 'scissors') ||
+        (userChoice === 'paper' && computerChoice === 'rock') ||
+        (userChoice === 'scissors' && computerChoice === 'paper')
+      ) {
+        userScore++;
+        return 'You win!';
+      } else {
+        computerScore++;
+        return 'You lose!';
+      }
+    }
+
+    // Function to display result and update score
+    function playGame(userChoice) {
+      const computerChoice = getComputerChoice();
+      const result = determineWinner(userChoice, computerChoice);
+      const resultDisplay = document.getElementById('result');
+      const scoreDisplay = document.getElementById('score');
+
+      resultDisplay.textContent = `You chose ${userChoice}. Computer chose ${computerChoice}. ${result}`;
+      scoreDisplay.textContent = `Score: You ${userScore} - Computer ${computerScore}`;
+    }
+
+    // Event listeners for user's choice
+    document.getElementById('rock').addEventListener('click', function() {
+      playGame('rock');
+    });
+
+    document.getElementById('paper').addEventListener('click', function() {
+      playGame('paper');
+    });
+
+    document.getElementById('scissors').addEventListener('click', function() {
+      playGame('scissors');
+    });
+  </script>
+
+</body>
+</html>

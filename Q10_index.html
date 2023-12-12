@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Page Website</title>
+  <link rel="stylesheet" href="Q10_styles.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="Q10_index.html">Home</a></li>
+        <li><a href="Q10_about.html">About</a></li>
+        <li><a href="Q10_contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Welcome to our Website!</h1>
+    <p>This is the homepage content.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 YourWebsite</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // jQuery for hover states on interactive elements
+    $(document).ready(function(){
+      $('a, button, input[type="submit"]').hover(function(){
+        $(this).addClass('hover');
+      }, function(){
+        $(this).removeClass('hover');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Counting p elements</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      var numberOfPElements = $("#selected").find("p").length;
+      $("#result").text("Number of <p> elements: " + numberOfPElements);
+    });
+  </script>
+</head>
+<body>
+  <div id="selected">
+    <p>Red</p>
+    <p>White</p>
+    <p>Green</p>
+    <p>Black</p>
+    <p>Blue</p>
+    <p>Orange</p>
+  </div>
+
+  <div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Click and Double-click Events</title>
+</head>
+<body>
+  <p id="myParagraph">Click me!</p>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var myParagraph = document.getElementById('myParagraph');
+      var clicks = 0;
+      var timeout;
+
+      myParagraph.addEventListener('click', function() {
+        clicks++;
+        if (clicks === 1) {
+          timeout = setTimeout(function() {
+            alert("Single click event occurred!");
+            clicks = 0;
+          }, 250); // Adjust this value to set the delay for detecting a single click
+        } else if (clicks === 2) {
+          clearTimeout(timeout);
+          alert("Double-click event occurred!");
+          clicks = 0;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

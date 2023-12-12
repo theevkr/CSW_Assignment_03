@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Form</title>
+  <style>
+    /* Basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="submit"] {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus {
+      outline: none;
+      border-color: dodgerblue;
+    }
+    input[type="submit"] {
+      background-color: dodgerblue;
+      color: #fff;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #2196F3;
+    }
+    .error-message {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<form id="signupForm" onsubmit="return validateForm()">
+  <input type="text" id="name" name="name" placeholder="Enter your name">
+  <input type="email" id="email" name="email" placeholder="Enter your email">
+  <input type="submit" value="Sign Up">
+  <p class="error-message" id="errorMessage"></p>
+</form>
+
+<script>
+  function validateForm() {
+    var name = document.forms["signupForm"]["name"].value;
+    var email = document.forms["signupForm"]["email"].value;
+    var errorMessage = document.getElementById("errorMessage");
+
+    // Check if any field is empty
+    if (name === "" || email === "") {
+      errorMessage.textContent = "Please fill in all fields";
+      return false;
+    }
+
+    // Check if the email is valid
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      errorMessage.textContent = "Please enter a valid email address";
+      return false;
+    }
+
+    // Clear error message if validation passes
+    errorMessage.textContent = "";
+    return true;
+  }
+</script>
+
+</body>
+</html>

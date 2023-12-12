@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blur Event with jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#field1").blur(function(){
+        // Function to execute when Field1 loses focus
+        alert("Field1 lost focus!");
+        // You can add your desired actions here
+      });
+    });
+  </script>
+</head>
+<body>
+  <form>
+    <input id="field1" type="text" value="Field 1">
+    <input id="field2" type="text" value="Field 2">
+  </form>
+</body>
+</html>

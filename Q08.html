@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Listings with Filtering</title>
+  <style>
+    /* Basic styling for job listings */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .job-list {
+      list-style: none;
+      padding: 0;
+    }
+    .job-item {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <label for="category">Filter by Category:</label>
+  <select id="category">
+    <option value="all">All Categories</option>
+    <option value="category1">Category 1</option>
+    <option value="category2">Category 2</option>
+    <!-- Add more options for different categories -->
+  </select>
+
+  <ul class="job-list" id="jobsList">
+    <!-- Job listings will be dynamically added here -->
+  </ul>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Sample job data (replace this with your job data)
+    const jobData = [
+      { title: 'Job 1', category: 'category1' },
+      { title: 'Job 2', category: 'category2' },
+      // Add more job data objects...
+    ];
+
+    $(document).ready(function(){
+      // Display initial job listings on page load
+      displayJobs(jobData);
+
+      // Filter job listings based on selected category
+      $('#category').change(function(){
+        const selectedCategory = $(this).val();
+        if (selectedCategory === 'all') {
+          displayJobs(jobData);
+        } else {
+          const filteredJobs = jobData.filter(job => job.category === selectedCategory);
+          displayJobs(filteredJobs);
+        }
+      });
+    });
+
+    // Function to display job listings in the DOM
+    function displayJobs(jobs) {
+      const jobsList = $('#jobsList');
+      jobsList.empty();
+      jobs.forEach(job => {
+        const jobItem = `<li class="job-item">${job.title} - ${job.category}</li>`;
+        jobsList.append(jobItem);
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="stylesheet" href="Q10_styles.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="Q10_index.html">Home</a></li>
+        <li><a href="Q10_about.html">About</a></li>
+        <li><a href="Q10_contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>About Us</h1>
+    <div class="team-member">
+      <h2>Team Member 1</h2>
+      <p>Description of Team Member 1</p>
+      <button class="expand-info">+</button>
+      <div class="more-info" style="display: none;">
+        <!-- Additional information about Team Member 1 -->
+      </div>
+    </div>
+    <div class="team-member">
+      <h2>Team Member 2</h2>
+      <p>Description of Team Member 2</p>
+      <button class="expand-info">+</button>
+      <div class="more-info" style="display: none;">
+        <!-- Additional information about Team Member 2 -->
+      </div>
+    </div>
+    <!-- More team members... -->
+  </main>
+
+  <footer>
+    <p>&copy; 2023 YourWebsite</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // jQuery to toggle display of additional team member information
+    $(document).ready(function(){
+      $('.expand-info').click(function(){
+        $(this).next('.more-info').slideToggle();
+      });
+    });
+  </script>
+</body>
+</html>

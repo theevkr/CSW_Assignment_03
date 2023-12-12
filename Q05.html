@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Methods Demo</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    /* Some basic styling for demonstration */
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+      display: none;
+      margin: 20px;
+      text-align: center;
+      line-height: 200px;
+    }
+    .newClass {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box" id="box">This is a box</div>
+<button id="slideUpBtn">Slide Up</button>
+<button id="animateBtn">Animate</button>
+<button id="fadeInBtn">Fade In</button>
+<button id="hideBtn">Hide</button>
+<button id="showBtn">Show</button>
+<button id="mouseEnterBtn">Mouse Enter</button>
+<button id="doubleClickBtn">Double Click</button>
+<button id="mouseLeaveBtn">Mouse Leave</button>
+<button id="attrBtn">Change Attribute</button>
+<button id="htmlBtn">Change HTML</button>
+
+<script>
+  $(document).ready(function() {
+    // Slide Down method
+    $('#slideUpBtn').click(function() {
+      $('#box').slideDown();
+    });
+
+    // Animate method
+    $('#animateBtn').click(function() {
+      $('#box').animate({
+        width: '400px',
+        height: '400px'
+      }, 1000);
+    });
+
+    // Fade In method
+    $('#fadeInBtn').click(function() {
+      $('#box').fadeIn();
+    });
+
+    // Hide method
+    $('#hideBtn').click(function() {
+      $('#box').hide();
+    });
+
+    // Show method
+    $('#showBtn').click(function() {
+      $('#box').show();
+    });
+
+    // Mouse Enter method
+    $('#mouseEnterBtn').mouseenter(function() {
+      $('#box').html('Mouse Entered!');
+    });
+
+    // Double Click method
+    $('#doubleClickBtn').dblclick(function() {
+      $('#box').html('Double Clicked!');
+    });
+
+    // Mouse Leave method
+    $('#mouseLeaveBtn').mouseleave(function() {
+      $('#box').html('Mouse Left!');
+    });
+
+    // Change Attribute method
+    $('#attrBtn').click(function() {
+      $('#box').css('border', '2px solid red');
+    });
+
+    // Change HTML method
+    $('#htmlBtn').click(function() {
+      $('#box').html('HTML Changed!');
+    });
+  });
+</script>
+
+</body>
+</html>
